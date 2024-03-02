@@ -1,0 +1,324 @@
+﻿===================
+===================
+===================
+========GET========
+===================
+===================
+===================
+
+
+I. Chunk
+
+
+Test Website: 
+http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx
+Note: Chunk cache also works. It’s just that we cannot find a chunk website with a cacheable tag.
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+0: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 00:39:17 2024
+0: not in cache
+0: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+0: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+0: Note - Chunked
+0: Responding "HTTP/1.1 200 OK"
+0: not cacheable because the cache-control is no-store or private
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+
+
+
+
+
+
+
+
+II. Cache
+-Non-cacheable because of no-cache or private
+Test Website: 
+http://run.mocky.io/v3/d9cdace3-e159-48e0-83b5-bc266221c788
+(Repeated 2 times)
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—---------
+0: "GET http://run.mocky.io/v3/d9cdace3-e159-48e0-83b5-bc266221c788 HTTP/1.1" from 172.19.0.1 @ Fri Mar  1 23:07:44 2024
+0: not in cache
+0: Requesting "GET http://run.mocky.io/v3/d9cdace3-e159-48e0-83b5-bc266221c788 HTTP/1.1" from run.mocky.io
+0: Received "HTTP/1.1 200 OK" from run.mocky.io
+0: not cacheable because the cache-control is no-store or private
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://run.mocky.io/v3/d9cdace3-e159-48e0-83b5-bc266221c788 HTTP/1.1" from 172.19.0.1 @ Fri Mar  1 23:07:56 2024
+1: not in cache
+1: Requesting "GET http://run.mocky.io/v3/d9cdace3-e159-48e0-83b5-bc266221c788 HTTP/1.1" from run.mocky.io
+1: Received "HTTP/1.1 200 OK" from run.mocky.io
+1: not cacheable because the cache-control is no-store or private
+1: Responding "HTTP/1.1 200 OK"
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+
+
+
+-Revalidation:
+Test Website:
+http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f
+Note: Since it is hard to test cache re-validation, and we want to ensure our users can get the requested content, so we updated our re-validation logic. If we received a 304 response (meaning we can use the cached content), we will serve the cached content. If we did not receive a 304 response, we will send a request using the request URL. In that case, we can make sure our user always gets the correct and up-to-date content.
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+0: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:37:29 2024
+0: not in cache
+0: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+0: Received "HTTP/1.1 200 OK" from run.mocky.io
+0: cached, but requires re-validation
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:37:31 2024
+1: in cache, requires validation
+1: NOTE - Validating from run.mocky.io
+1: Received "" from run.mocky.io
+1: Responding ""
+1: Note - Failed to validate, request from the original website again
+1: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+1: Received "HTTP/1.1 200 OK" from run.mocky.io
+1: cached, but requires re-validation
+1: Responding "HTTP/1.1 200 OK"
+2: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:37:32 2024
+2: in cache, requires validation
+2: NOTE - Validating from run.mocky.io
+2: Received "" from run.mocky.io
+2: Responding ""
+2: Note - Failed to validate, request from the original website again
+2: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+2: Received "HTTP/1.1 200 OK" from run.mocky.io
+2: cached, but requires re-validation
+2: Responding "HTTP/1.1 200 OK"
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+
+
+-Long-maxage, long expire to test we can use the cache:
+Test Website: http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361
+(Repeated 3 times)
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+0: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:50:56 2024
+0: not in cache
+0: Requesting "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from run.mocky.io
+0: Received "HTTP/1.1 200 OK" from run.mocky.io
+0: cached, expires at Sun, 02 Mar 2025 01:50:57 GMT
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:50:59 2024
+1: in cache, valid
+1: Responding "HTTP/1.1 200 OK"
+2: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:53:49 2024
+2: in cache, valid
+2: Responding "HTTP/1.1 200 OK"
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+-Short-maxage, long expire, test expire after certain time
+Test website: http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783
+(Repeated 3 times)
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+0: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:45:11 2024
+0: not in cache
+0: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+0: Received "HTTP/1.1 200 OK" from run.mocky.io
+0: cached, expires at Sat, 02 Mar 2024 01:45:14 GMT
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:45:13 2024
+1: in cache, valid
+1: Responding "HTTP/1.1 200 OK"
+2: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 01:45:25 2024
+2: in cache, but expired at Sat, 02 Mar 2024 01:45:14 GMT
+2: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+2: Received "HTTP/1.1 200 OK" from run.mocky.io
+2: cached, expires at Sat, 02 Mar 2024 01:45:28 GMT
+2: Responding "HTTP/1.1 200 OK"
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+===================
+===================
+===================
+=======POST=======
+===================
+===================
+===================
+
+
+Test Website: 
+http://httpbin.org/forms/post
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------0: "GET http://httpbin.org/forms/post HTTP/1.1" from 45.37.79.224 @ Fri Mar  1 23:02:45 2024
+0: not in cache
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1 from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
+0: undefined cache policy
+0: Responding "HTTP/1.1 200 OK
+1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 45.37.79.224 @ Fri Mar  1 23:02:45 2024
+1: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+1: Responding "HTTP/1.1 200 OK"
+2: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 45.37.79.224 @ Fri Mar  1 23:02:48 2024
+2: Requesting "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1 from mozilla.cloudflare-dns.com
+2: Responding "HTTP/1.1 200 OK"
+3: "POST http://httpbin.org/post HTTP/1.1" from 45.37.79.224 @ Fri Mar  1 23:03:18 2024
+3: Requesting "POST http://httpbin.org/post HTTP/1.1 from httpbin.org
+3: Received "HTTP/1.1 200 OK" from httpbin.org
+3: Responding "HTTP/1.1 200 OK
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+===================
+===================
+===================
+======CONNECT=====
+===================
+===================
+===================
+
+
+Test Website: 
+https://www.google.com/
+(Repeated 3 times)
+—--------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+0: "CONNECT www.google.com:443 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 02:04:07 2024
+0: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+0: Responding "HTTP/1.1 200 OK"
+0: Tunnel closed
+1: "CONNECT www.google.com:443 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 02:04:13 2024
+1: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+1: Responding "HTTP/1.1 200 OK"
+1: Tunnel closed
+2: "CONNECT www.google.com:443 HTTP/1.1" from 172.19.0.1 @ Sat Mar  2 02:04:16 2024
+2: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+2: Responding "HTTP/1.1 200 OK"
+2: Tunnel closed
+—---------—---------—---------—---------—---------—---------—---------—---------—---------—----------------
+
+
+
+
+Others
+Test Website:
+https://www.reddit.com/
+0: "CONNECT www.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+0: Requesting "CONNECT www.reddit.com:443 HTTP/1.1" from www.reddit.com
+0: Responding "HTTP/1.1 200 OK"
+1: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+1: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+2: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+2: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+3: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+3: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+6: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+6: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+4: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+4: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+5: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+5: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+8: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+8: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+7: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
+7: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
+2: Responding "HTTP/1.1 200 OK"
+1: Responding "HTTP/1.1 200 OK"
+4: Responding "HTTP/1.1 200 OK"
+3: Responding "HTTP/1.1 200 OK"
+5: Responding "HTTP/1.1 200 OK"
+6: Responding "HTTP/1.1 200 OK"
+8: Responding "HTTP/1.1 200 OK"
+7: Responding "HTTP/1.1 200 OK"
+2: Tunnel closed
+4: Tunnel closed
+5: Tunnel closed
+3: Tunnel closed
+6: Tunnel closed
+8: Tunnel closed
+13: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+13: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+13: Responding "HTTP/1.1 200 OK"
+9: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+9: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+17: "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+17: Requesting "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from w3-reporting.reddit.com
+9: Responding "HTTP/1.1 200 OK"
+21: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+21: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+24: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+24: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+23: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+23: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+25: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+25: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+17: Responding "HTTP/1.1 200 OK"
+15: "CONNECT preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+15: Requesting "CONNECT preview.redd.it:443 HTTP/1.1" from preview.redd.it
+16: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+16: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+10: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+10: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+14: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+14: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+11: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+11: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
+12: "CONNECT preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+12: Requesting "CONNECT preview.redd.it:443 HTTP/1.1" from preview.redd.it
+21: Responding "HTTP/1.1 200 OK"
+24: Responding "HTTP/1.1 200 OK"
+23: Responding "HTTP/1.1 200 OK"
+25: Responding "HTTP/1.1 200 OK"
+26: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+26: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
+12: Responding "HTTP/1.1 200 OK"
+15: Responding "HTTP/1.1 200 OK"
+14: Responding "HTTP/1.1 200 OK"
+16: Responding "HTTP/1.1 200 OK"
+11: Responding "HTTP/1.1 200 OK"
+10: Responding "HTTP/1.1 200 OK"
+26: Responding "HTTP/1.1 200 OK"
+29: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+29: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
+29: Responding "HTTP/1.1 200 OK"
+30: "CONNECT v.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+30: Requesting "CONNECT v.redd.it:443 HTTP/1.1" from v.redd.it
+9: Tunnel closed
+18: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+18: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+20: "CONNECT b.thumbs.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+20: Requesting "CONNECT b.thumbs.redditmedia.com:443 HTTP/1.1" from b.thumbs.redditmedia.com
+22: "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+22: Requesting "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from w3-reporting.reddit.com
+19: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+19: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+18: Responding "HTTP/1.1 200 OK"
+19: Responding "HTTP/1.1 200 OK"
+27: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+27: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
+20: Responding "HTTP/1.1 200 OK"
+28: "CONNECT www.google.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+28: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+22: Responding "HTTP/1.1 200 OK"
+30: Responding "HTTP/1.1 200 OK"
+28: Responding "HTTP/1.1 200 OK"
+27: Responding "HTTP/1.1 200 OK"
+14: Tunnel closed
+24: Tunnel closed
+31: "CONNECT accounts.google.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
+31: Requesting "CONNECT accounts.google.com:443 HTTP/1.1" from accounts.google.com
+31: Responding "HTTP/1.1 200 OK"
+25: Tunnel closed
+23: Tunnel closed
+29: Tunnel closed
+12: Tunnel closed
+10: Tunnel closed
+11: Tunnel closed
+16: Tunnel closed
+19: Tunnel closed
+27: Tunnel closed
