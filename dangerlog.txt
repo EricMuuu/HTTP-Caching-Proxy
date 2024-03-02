@@ -1,0 +1,35 @@
+﻿1. We thought we would always receive bytes. But it turns out we will receive 0 byte and with that null pass into the constructor will cause logic error and terminate the whole server. We then took care of the 0 byte cases and fixed this problem.
+
+
+2. We assume that the responses we get are all fresh from the server, so even if the age field is presented in a HTTP header, it will not affect how we determine the freshness of a response as it will always be 0.
+
+
+3. We were stuck on how to cache a chunked response. Because our cache mechanism is based on a regular formatted response class but chunked responses will just mess up everything. We then modified the chunk cache mechanism to have a vector to collect all the chunk responses and construct it to a regular response.
+
+
+4. Since it is hard to test cache re-validation, and we want to ensure our users can get the requested content, so we updated our re-validation logic. If we received a 304 response (meaning we can use the cached content), we will serve the cached content. If we did not receive a 304 response, we will send a request using the request URL. In that case, we can make sure our user always gets the correct and up-to-date content.
+
+
+5. Based on the cache-control documentation, we decided to prioritize the max-age field rather than the expire field when caching content. In other words, if the expire field and the max-age field indicate different expiry time, we will follow the max-age field according to the documentation.
+
+
+6. We accidentally discovered a critical bug due to an error in the constructor order for the response class. This mistake led to the caching system only storing the front part of the host URL, instead of the full URL. However, this issue went unnoticed during testing because our cache tests were conducted by accessing the same website only once. As a result, the cache mechanism appeared to function correctly.
+
+
+7. All of our time records are based on GMT
+
+
+
+
+Our code handled 400 and 502 Errors. 
+For 400, we have implemented a verification mechanism upon receiving requests. When an unrecognized request is received, we return a 400 error code. For 502, our response class is well formatted and is able to detect different missing details. Whenever that happens, we return a 502 error code.
+
+
+Exception Guarantees:
+* Cache: This part of code provides Basic Guarantee because it uses RAII to manage dynamic memory, but objects might be modified if an exception is thrown since we cannot roll back to the previous state.
+* Proxy: This part of code provides Basic Guarantee because it uses RAII to manage dynamic memory, but objects such as sockets might be modified if an exception is thrown since we cannot roll back to the previous state.
+* Common: This part of code provides Basic Guarantee as we cannot roll back to the previous version to ensure objects are unmodified when an exception is thrown.
+* Request: This part of code provides Basic Guarantee as it will not leak resources and objects remain in valid states when exceptions are thrown, but we cannot ensure the Request objects are unmodified.
+* Response: This part of code provides Basic Guarantee as it will not leak resources and objects remain in valid states when exceptions are thrown, but we cannot ensure the Response objects are unmodified.
+* User: This part of code provides No Throw Guarantee because all the functions are getters and setters that assign or return values, so no exceptions will be thrown. 
+Based on the previous analysis, our code provides Basic Guarantee.
