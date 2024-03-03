@@ -341,7 +341,7 @@ void Proxy::handle_GET(int client_fd, Request& request, int user_id) {
                 const char* bad_response =
                     "HTTP/1.1 502 Bad Gateway\r\nContent-Type: text/plain\r\nContent-Length: 15\r\n\r\n502 Bad Gateway\r\n";
                 send(client_fd, bad_response, strlen(bad_response), 0);
-            //我觉得如果status code是502的话，他的status line本身就是"HTTP/1.1 502 Bad Gateway"了，上面的那个responding已经打印过了，所以这里不需要再次写入日志？只需要send给client
+            
                 // pthread_mutex_lock(&mutex);
                 // proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
                 // cerr << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;

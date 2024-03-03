@@ -20,9 +20,8 @@
 
 
 
-
-Our code handled 400 and 502 Errors. 
-For 400, we have implemented a verification mechanism upon receiving requests. When an unrecognized request is received, we return a 400 error code. For 502, our response class is well formatted and is able to detect different missing details. Whenever that happens, we return a 502 error code.
+For 400, we have implemented a verification mechanism upon receiving requests. When an unrecognized request is received, we send a 400 error code to the client. 
+For 502, our response class is well formatted and is able to detect the 502 error code. Whenever we receive that code, we send a 502 error code to the client.
 
 
 Exception Guarantees:
