@@ -172,13 +172,20 @@ void* Proxy::handle_request(void* info) {
 
     string data(buffer.begin(), buffer.begin() + bytes_received);
     Request request(data);
-    if (request.request_method != "GET" && request.request_method != "POST" && request.request_method != "CONNECT") {
+    //新加的东西
+    if (request.is_valid == 0) {
+        const char* response =
+        "HTTP/1.1 400 Bad Request\r\nContent-Type: text/plain\r\nContent-Length: 15\r\n\r\n400 Bad Request\r\n";
+        
+        send(client_fd, response, strlen(response), 0);
         pthread_mutex_lock(&mutex);
         proxyLog << user->get_id() << ": Responding \"HTTP/1.1 400 Bad Request\"" << endl;
         cerr << user->get_id() << ": Responding \"HTTP/1.1 400 Bad Request\"" << endl;
         pthread_mutex_unlock(&mutex);
+        close(client_fd);
         return nullptr;
     }
+    
 
     pthread_mutex_lock(&mutex);
     proxyLog << user->get_id() << ": \"" << request.get_first_line() << "\" from "
@@ -329,8 +336,21 @@ void Proxy::handle_GET(int client_fd, Request& request, int user_id) {
                     proxyLog << user_id << ": ERROR - Failed to send cached response to client" << endl;
                     pthread_mutex_unlock(&mutex);
                 }
+            //新加的东西
+            } else if (status_code == "502") {   
+                const char* bad_response =
+                    "HTTP/1.1 502 Bad Gateway\r\nContent-Type: text/plain\r\nContent-Length: 15\r\n\r\n502 Bad Gateway\r\n";
+                send(client_fd, bad_response, strlen(bad_response), 0);
+            //我觉得如果status code是502的话，他的status line本身就是"HTTP/1.1 502 Bad Gateway"了，上面的那个responding已经打印过了，所以这里不需要再次写入日志？只需要send给client
+                // pthread_mutex_lock(&mutex);
+                // proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+                // cerr << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+                // pthread_mutex_unlock(&mutex);
+                close(client_fd);
+                return;
             } else {
-                // We get the response from server
+                // We get the response from server 
+                // not 304 not 502
                 // We dont update cache
                 
                 pthread_mutex_lock(&mutex);
@@ -503,7 +523,7 @@ void Proxy::handle_GET(int client_fd, Request& request, int user_id) {
             }
 
         //If validation is not needed
-        } else {
+        } else {//
             pthread_mutex_lock(&mutex);
             proxyLog << user_id << ": Responding \"" << cacheResponse.status_line << "\"" << endl;
             cout << user_id << ": Responding \"" << cacheResponse.status_line << "\"" << endl;
@@ -549,6 +569,7 @@ void Proxy::handle_GET(int client_fd, Request& request, int user_id) {
         vector<char> response_data(4096);
         ssize_t bytes_received = read(server_fd, response_data.data(), response_data.size());
 
+        //get status line
         string responseStr(response_data.begin(), response_data.begin() + bytes_received);
         size_t end_pos = responseStr.find("\r\n");
         string status_line = (end_pos != string::npos) ? responseStr.substr(0, end_pos) : "Invalid Response Format";
@@ -557,6 +578,29 @@ void Proxy::handle_GET(int client_fd, Request& request, int user_id) {
         proxyLog << user_id << ": Received \"" << status_line << "\" from " << request.host << endl;
         cout << user_id << ": Received \"" << status_line << "\" from " << request.host << endl;
         pthread_mutex_unlock(&mutex);
+
+        //新加的东西
+        string status_code;
+        if (!status_line.empty()) {
+            size_t status_code_start = status_line.find(" ") + 1;
+            size_t status_code_end = status_line.find(" ", status_code_start);
+            if (status_code_start != string::npos && status_code_end != string::npos) {
+                status_code = status_line.substr(status_code_start, status_code_end - status_code_start);
+            }
+        }
+
+        //新加的东西
+        if (status_code == "502") {
+            const char* bad_response =
+                "HTTP/1.1 502 Bad Gateway\r\nContent-Type: text/plain\r\nContent-Length: 15\r\n\r\n502 Bad Gateway\r\n";
+            send(client_fd, bad_response, strlen(bad_response), 0);
+            pthread_mutex_lock(&mutex);
+            proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+            cerr << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+            pthread_mutex_unlock(&mutex);
+            close(client_fd);
+            return;
+        }
 
         bool isChunked = false;
         if (findChunk(response_data.data(), bytes_received)) {
@@ -718,6 +762,20 @@ void Proxy::handle_POST(int client_fd, Request& request, int user_id) {
     bytes_received = read(server_fd, response_data.data(), response_data.size());
     // cout.write(response_data.data(), bytes_received);
     Response response(string(response_data.begin(), response_data.begin() + bytes_received), user_id);
+
+    //新加的东西
+    if (response.status_code == "502") {
+        const char* bad_response =
+            "HTTP/1.1 502 Bad Gateway\r\nContent-Type: text/plain\r\nContent-Length: 15\r\n\r\n502 Bad Gateway\r\n";
+        send(client_fd, bad_response, strlen(bad_response), 0);
+        pthread_mutex_lock(&mutex);
+        proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+        cerr << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+        pthread_mutex_unlock(&mutex);
+        close(client_fd);
+        return;
+    }
+
     pthread_mutex_lock(&mutex);
     proxyLog << user_id << ": Received \"" << response.status_line << "\" from " << request.host << endl;
     cout << user_id << ": Received \"" << response.status_line << "\" from " << request.host << endl;

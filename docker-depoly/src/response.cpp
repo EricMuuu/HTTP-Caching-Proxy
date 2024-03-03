@@ -17,7 +17,7 @@ void Response::extract_status_line(){
         this->status_line = string(this->response_info.begin(), this->response_info.begin() + end_pos);
     } else {
         pthread_mutex_lock(&mutex);
-        proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+        proxyLog << user_id << ": ERROR - Cannot find the status line" << endl;
         cerr << "Cannot find the status line" << endl;
         pthread_mutex_unlock(&mutex);
         this->is_valid = 0; 
@@ -39,21 +39,21 @@ void Response::extract_status_code(){
                 this->status_code = first_line.substr(code_start, code_end - code_start);
             } else {
                 pthread_mutex_lock(&mutex);
-                proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+                proxyLog << user_id << ": ERROR - Cannot extract status code" << endl;
                 cerr << "Cannot extract status code" << endl;
                 pthread_mutex_unlock(&mutex);
                 this->is_valid = 0;
             }
         } else {
             pthread_mutex_lock(&mutex);
-            proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+            proxyLog << user_id << ": ERROR - Cannot find status code" << endl;
             cerr << "Cannot find status code" << endl;
             pthread_mutex_unlock(&mutex);
             this->is_valid = 0;
         }
     } else {
         pthread_mutex_lock(&mutex);
-        proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+        proxyLog << user_id << ": ERRPR - Cannot find the header line" << endl;
         cerr << "Cannot find the header line" << endl;
         pthread_mutex_unlock(&mutex);
         this->is_valid = 0;
@@ -70,7 +70,7 @@ void Response::extract_cache_control(){
             this->cache_control = cur_response.substr(control_pos + 15, end_pos - control_pos - 15);
         } else {
             pthread_mutex_lock(&mutex);
-            proxyLog << user_id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << endl;
+            proxyLog << user_id << ": ERROR - Cannot extract cache control policy" << endl;
             cerr << "Cannot extract cache control policy" << endl;
             pthread_mutex_unlock(&mutex);
             this->is_valid = 0;

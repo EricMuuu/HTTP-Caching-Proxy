@@ -1,295 +1,108 @@
-0: "CONNECT www.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-0: Requesting "CONNECT www.reddit.com:443 HTTP/1.1" from www.reddit.com
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:30:44 2024
+0: Requesting "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from img-getpocket.cdn.mozilla.net
 0: Responding "HTTP/1.1 200 OK"
-1: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-1: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-2: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-2: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-3: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-3: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-6: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-6: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-4: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-4: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-5: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-5: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-8: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-8: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-7: "CONNECT www.redditstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:38 2024
-7: Requesting "CONNECT www.redditstatic.com:443 HTTP/1.1" from www.redditstatic.com
-2: Responding "HTTP/1.1 200 OK"
+1: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:30:44 2024
+1: Requesting "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from mozilla.cloudflare-dns.com
 1: Responding "HTTP/1.1 200 OK"
-4: Responding "HTTP/1.1 200 OK"
+2: "GET http://httpbin.org/forms/post HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:30:46 2024
+2: not in cache
+2: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+2: Received "HTTP/1.1 200 OK" from httpbin.org
+2: undefined cache policy
+2: Responding "HTTP/1.1 200 OK"
+3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:30:46 2024
+3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 3: Responding "HTTP/1.1 200 OK"
+4: "POST http://ocsp.digicert.com/ HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:30:46 2024
+4: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+4: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+4: Responding "HTTP/1.1 200 OK"
+5: "POST http://httpbin.org/post HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:31:04 2024
+5: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+5: Received "HTTP/1.1 200 OK" from httpbin.org
 5: Responding "HTTP/1.1 200 OK"
+6: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:31:07 2024
+6: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
 6: Responding "HTTP/1.1 200 OK"
-8: Responding "HTTP/1.1 200 OK"
+7: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:31:07 2024
+7: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+7: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
 7: Responding "HTTP/1.1 200 OK"
-2: Tunnel closed
-4: Tunnel closed
-5: Tunnel closed
-3: Tunnel closed
-6: Tunnel closed
-8: Tunnel closed
-13: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-13: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-13: Responding "HTTP/1.1 200 OK"
-9: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-9: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-17: "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-17: Requesting "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from w3-reporting.reddit.com
+8: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:31:54 2024
+8: not in cache
+8: Requesting "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from run.mocky.io
+8: Received "HTTP/1.1 200 OK" from run.mocky.io
+8: cached, expires at Mon, 03 Mar 2025 02:31:54 GMT
+8: Responding "HTTP/1.1 200 OK"
+9: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:32:00 2024
+9: in cache, valid
 9: Responding "HTTP/1.1 200 OK"
-21: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-21: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
-24: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-24: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
-23: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-23: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
-25: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-25: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
-17: Responding "HTTP/1.1 200 OK"
-15: "CONNECT preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-15: Requesting "CONNECT preview.redd.it:443 HTTP/1.1" from preview.redd.it
-16: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-16: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-10: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-10: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-14: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-14: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-11: "CONNECT external-preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-11: Requesting "CONNECT external-preview.redd.it:443 HTTP/1.1" from external-preview.redd.it
-12: "CONNECT preview.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-12: Requesting "CONNECT preview.redd.it:443 HTTP/1.1" from preview.redd.it
-21: Responding "HTTP/1.1 200 OK"
-24: Responding "HTTP/1.1 200 OK"
-23: Responding "HTTP/1.1 200 OK"
-25: Responding "HTTP/1.1 200 OK"
-26: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-26: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
-12: Responding "HTTP/1.1 200 OK"
-15: Responding "HTTP/1.1 200 OK"
-14: Responding "HTTP/1.1 200 OK"
-16: Responding "HTTP/1.1 200 OK"
-11: Responding "HTTP/1.1 200 OK"
+10: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:32:10 2024
+10: in cache, valid
 10: Responding "HTTP/1.1 200 OK"
-26: Responding "HTTP/1.1 200 OK"
-29: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-29: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
-29: Responding "HTTP/1.1 200 OK"
-30: "CONNECT v.redd.it:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-30: Requesting "CONNECT v.redd.it:443 HTTP/1.1" from v.redd.it
-9: Tunnel closed
-18: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-18: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
-20: "CONNECT b.thumbs.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-20: Requesting "CONNECT b.thumbs.redditmedia.com:443 HTTP/1.1" from b.thumbs.redditmedia.com
-22: "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-22: Requesting "CONNECT w3-reporting.reddit.com:443 HTTP/1.1" from w3-reporting.reddit.com
-19: "CONNECT styles.redditmedia.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-19: Requesting "CONNECT styles.redditmedia.com:443 HTTP/1.1" from styles.redditmedia.com
+11: "GET http://run.mocky.io/v3/ca9e015b-c45d-4e76-89bb-0273855ba361 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:32:12 2024
+11: in cache, valid
+11: Responding "HTTP/1.1 200 OK"
+12: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:32:27 2024
+12: not in cache
+12: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+12: Received "HTTP/1.1 200 OK" from run.mocky.io
+12: cached, expires at Sun, 03 Mar 2024 02:32:30 GMT
+12: Responding "HTTP/1.1 200 OK"
+13: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:05 2024
+13: in cache, but expired at Sun, 03 Mar 2024 02:32:30 GMT
+13: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+13: Received "HTTP/1.1 200 OK" from run.mocky.io
+13: cached, expires at Sun, 03 Mar 2024 02:33:08 GMT
+13: Responding "HTTP/1.1 200 OK"
+14: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:10 2024
+14: in cache, but expired at Sun, 03 Mar 2024 02:33:08 GMT
+14: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+14: Received "HTTP/1.1 200 OK" from run.mocky.io
+14: cached, expires at Sun, 03 Mar 2024 02:33:13 GMT
+14: Responding "HTTP/1.1 200 OK"
+15: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:18 2024
+15: in cache, but expired at Sun, 03 Mar 2024 02:33:13 GMT
+15: Requesting "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from run.mocky.io
+15: Received "HTTP/1.1 200 OK" from run.mocky.io
+15: cached, expires at Sun, 03 Mar 2024 02:33:22 GMT
+15: Responding "HTTP/1.1 200 OK"
+16: "GET http://run.mocky.io/v3/765ce347-9677-48cc-bcfe-c82fa04d7783 HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:19 2024
+16: in cache, valid
+16: Responding "HTTP/1.1 200 OK"
+17: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:42 2024
+17: not in cache
+17: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+17: Received "HTTP/1.1 200 OK" from run.mocky.io
+17: cached, but requires re-validation
+17: Responding "HTTP/1.1 200 OK"
+18: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:45 2024
+18: in cache, requires validation
+18: NOTE - Validating from run.mocky.io
+18: Received "" from run.mocky.io
+18: Responding ""
+18: Note - Failed to validate, request from the original website again
+18: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+18: Received "HTTP/1.1 200 OK" from run.mocky.io
+18: cached, but requires re-validation
 18: Responding "HTTP/1.1 200 OK"
+19: "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from 172.19.0.1 @ Sun Mar  3 02:33:46 2024
+19: in cache, requires validation
+19: NOTE - Validating from run.mocky.io
+19: Received "" from run.mocky.io
+19: Responding ""
+19: Note - Failed to validate, request from the original website again
+19: Requesting "GET http://run.mocky.io/v3/478fdd46-81a4-4b41-83a2-a30d2e87622f HTTP/1.1" from run.mocky.io
+19: Received "HTTP/1.1 200 OK" from run.mocky.io
+19: cached, but requires re-validation
 19: Responding "HTTP/1.1 200 OK"
-27: "CONNECT alb.reddit.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-27: Requesting "CONNECT alb.reddit.com:443 HTTP/1.1" from alb.reddit.com
-20: Responding "HTTP/1.1 200 OK"
-28: "CONNECT www.google.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-28: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-22: Responding "HTTP/1.1 200 OK"
-30: Responding "HTTP/1.1 200 OK"
-28: Responding "HTTP/1.1 200 OK"
-27: Responding "HTTP/1.1 200 OK"
-14: Tunnel closed
-24: Tunnel closed
-31: "CONNECT accounts.google.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-31: Requesting "CONNECT accounts.google.com:443 HTTP/1.1" from accounts.google.com
-31: Responding "HTTP/1.1 200 OK"
-25: Tunnel closed
-23: Tunnel closed
-29: Tunnel closed
-12: Tunnel closed
-10: Tunnel closed
-11: Tunnel closed
-16: Tunnel closed
-19: Tunnel closed
-27: Tunnel closed
-32: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-32: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-33: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:39 2024
-33: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-32: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-32: Responding "HTTP/1.1 200 OK"
-33: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-33: Responding "HTTP/1.1 200 OK"
-18: Tunnel closed
-34: "CONNECT www.gstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-34: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-34: Responding "HTTP/1.1 200 OK"
-35: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-35: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-35: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-35: Responding "HTTP/1.1 200 OK"
-36: "CONNECT ad-delivery.net:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-36: Requesting "CONNECT ad-delivery.net:443 HTTP/1.1" from ad-delivery.net
-36: Responding "HTTP/1.1 200 OK"
-37: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-37: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-38: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-38: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-37: Responding "HTTP/1.1 200 OK"
-38: Responding "HTTP/1.1 200 OK"
-40: "CONNECT www.gstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-40: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-37: Tunnel closed
-39: "CONNECT www.gstatic.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:40 2024
-39: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-40: Responding "HTTP/1.1 200 OK"
-39: Responding "HTTP/1.1 200 OK"
-39: Tunnel closed
-41: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:49 2024
-41: Requesting "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from mozilla.cloudflare-dns.com
-41: Responding "HTTP/1.1 200 OK"
-42: "CONNECT play.google.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:51 2024
-42: Requesting "CONNECT play.google.com:443 HTTP/1.1" from play.google.com
-42: Responding "HTTP/1.1 200 OK"
-45: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:51 2024
-45: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-45: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
-45: Responding "HTTP/1.1 200 OK"
-46: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:52 2024
-46: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
-46: Responding "HTTP/1.1 200 OK"
-47: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:52 2024
-47: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-47: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-47: Responding "HTTP/1.1 200 OK"
-48: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:08:53 2024
-48: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
-48: Responding "HTTP/1.1 200 OK"
-48: Tunnel closed
-49: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:18 2024
-49: not in cache
-49: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-49: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-49: cached, but requires re-validation
-49: Responding "HTTP/1.1 200 OK"
-51: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:18 2024
-51: not in cache
-51: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-52: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:18 2024
-52: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-52: Responding "HTTP/1.1 200 OK"
-51: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-51: cached, but requires re-validation
-51: Responding "HTTP/1.1 200 OK"
-53: "POST http://ocsp.digicert.com/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:18 2024
-53: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-53: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
-53: Responding "HTTP/1.1 200 OK"
-54: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:37 2024
-54: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
-54: Responding "HTTP/1.1 200 OK"
-55: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:37 2024
-55: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
-55: Responding "HTTP/1.1 200 OK"
-57: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:37 2024
-57: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-57: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-57: Responding "HTTP/1.1 200 OK"
-59: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:09:38 2024
-59: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
-59: Responding "HTTP/1.1 200 OK"
-60: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:10:18 2024
-60: in cache, requires validation
-60: NOTE - Validating from detectportal.firefox.com
-60: Received "HTTP/1.1 404 Not Found" from detectportal.firefox.com
-60: Responding "HTTP/1.1 404 Not Found"
-60: Note - Failed to validate, request from the original website again
-60: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-60: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-60: cached, but requires re-validation
-60: Responding "HTTP/1.1 200 OK"
-61: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:10:18 2024
-61: in cache, requires validation
-61: NOTE - Validating from detectportal.firefox.com
-61: Received "HTTP/1.1 404 Not Found" from detectportal.firefox.com
-61: Responding "HTTP/1.1 404 Not Found"
-61: Note - Failed to validate, request from the original website again
-61: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-61: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-61: cached, but requires re-validation
-61: Responding "HTTP/1.1 200 OK"
-21: Tunnel closed
-13: Tunnel closed
-26: Tunnel closed
-30: Tunnel closed
-15: Tunnel closed
-1: Tunnel closed
-20: Tunnel closed
-31: Tunnel closed
-34: Tunnel closed
-7: Tunnel closed
-36: Tunnel closed
-40: Tunnel closed
-28: Tunnel closed
-38: Tunnel closed
-22: Tunnel closed
-42: Tunnel closed
-46: Tunnel closed
-62: "CONNECT normandy.cdn.mozilla.net:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:12:08 2024
-62: Requesting "CONNECT normandy.cdn.mozilla.net:443 HTTP/1.1" from normandy.cdn.mozilla.net
-62: Responding "HTTP/1.1 200 OK"
-64: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:12:08 2024
-64: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-64: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-64: Responding "HTTP/1.1 200 OK"
-65: "CONNECT classify-client.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:12:09 2024
-65: Requesting "CONNECT classify-client.services.mozilla.com:443 HTTP/1.1" from classify-client.services.mozilla.com
-52: Tunnel closed
-65: Responding "HTTP/1.1 200 OK"
-67: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:12:09 2024
-67: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-67: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-67: Responding "HTTP/1.1 200 OK"
-69: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:12:09 2024
-69: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
-69: Responding "HTTP/1.1 200 OK"
-17: Tunnel closed
+6: Tunnel closed
+3: Tunnel closed
 0: Tunnel closed
-55: Tunnel closed
-59: Tunnel closed
-71: "CONNECT spocs.getpocket.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-71: Requesting "CONNECT spocs.getpocket.com:443 HTTP/1.1" from spocs.getpocket.com
-72: "CONNECT firefox-api-proxy.cdn.mozilla.net:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-72: Requesting "CONNECT firefox-api-proxy.cdn.mozilla.net:443 HTTP/1.1" from firefox-api-proxy.cdn.mozilla.net
-72: Responding "HTTP/1.1 200 OK"
-70: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-70: Requesting "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from contile.services.mozilla.com
-70: Responding "HTTP/1.1 200 OK"
-71: Responding "HTTP/1.1 200 OK"
-76: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-76: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-76: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-76: Responding "HTTP/1.1 200 OK"
-77: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-77: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-78: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:19 2024
-78: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-77: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-77: Responding "HTTP/1.1 200 OK"
-78: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-78: Responding "HTTP/1.1 200 OK"
-79: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:20 2024
-79: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-80: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:20 2024
-80: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-79: Responding "HTTP/1.1 200 OK"
-80: Responding "HTTP/1.1 200 OK"
-83: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:20 2024
-83: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-84: "POST http://r3.o.lencr.org/ HTTP/1.1" from 45.37.79.224 @ Sat Mar  2 02:13:20 2024
-84: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-83: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-83: Responding "HTTP/1.1 200 OK"
-84: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
-84: Responding "HTTP/1.1 200 OK"
-79: Tunnel closed
+20: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:34:33 2024
+20: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
+20: Responding "HTTP/1.1 200 OK"
+21: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 45.37.79.224 @ Sun Mar  3 02:34:34 2024
+21: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
+21: Responding "HTTP/1.1 200 OK"
+21: Tunnel closed

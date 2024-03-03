@@ -33,6 +33,7 @@ void Request::extract_method(){
     }
 }
 
+
 string Request::get_first_line() {
     string request(this->request_info.begin(), this->request_info.end());
     size_t end_pos = request.find("\r\n");
